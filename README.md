@@ -6,7 +6,7 @@
 ![Platform](https://img.shields.io/badge/MCU-ESP32--C3-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-![Demo](docs/images/demo.gif)
+![Zin Robo Buddy idle expression](docs/images/animated_eyes_demo.gif)
 
 ## Overview
 
@@ -19,11 +19,21 @@ I'm building this as a B.Tech CSE (Robotics & AI) student. My earlier projects w
 - [x] Source components
 - [x] Flash and verify ESP32-C3 Super Mini
 - [x] Wire and verify OLED over I2C
-- [ ] Animated face / expressions
+- [x] Animated face: idle expression (blinking and glancing)
+- [ ] More expressions (happy, sleepy, surprised, and others)
 - [ ] Power system (battery + charging)
 - [ ] Sensors and interaction (touch / motion)
 - [ ] Enclosure design (keychain + desk stand)
 - [ ] Wi-Fi / Bluetooth features
+
+## Expressions
+
+| Expression | Status | Preview |
+|---|---|---|
+| Idle (blinking, glancing) | ✅ Done | <img src="docs/images/animated_eyes_demo.gif" width="160" alt="Idle expression"> |
+| Happy | Planned | - |
+| Sleepy | Planned | - |
+| Surprised | Planned | - |
 
 ## Hardware
 
@@ -73,8 +83,13 @@ A brand-new ESP32-C3 Super Mini may not show a stable COM port until it is in bo
 |---|---|
 | [`firmware/00_i2c_scanner`](firmware/00_i2c_scanner/00_i2c_scanner.ino) | Lists I2C device addresses on the bus |
 | [`firmware/01_oled_hello_test`](firmware/01_oled_hello_test/01_oled_hello_test.ino) | Shows "Hello!" and blinks the display on/off |
+| [`firmware/02_animated_eyes`](firmware/02_animated_eyes/02_animated_eyes.ino) | Animated face, expression 1: idle with blinking and glancing |
 
-**Expected result:** "Hello!" appears on the screen and the display blinks every 500 ms.
+**Expected result (Hello test):** "Hello!" appears on the screen and the display blinks every 500 ms.
+
+![Hello test](docs/images/demo.gif)
+
+**Expected result (animated eyes):** two eyes and a smile appear, blinking and glancing at random intervals.
 
 ## Troubleshooting & Lessons Learned
 
@@ -102,7 +117,8 @@ So when the ESP32 stopped (unplugged or lost power) while the display still had 
 .
 ├── firmware/
 │   ├── 00_i2c_scanner/
-│   └── 01_oled_hello_test/
+│   ├── 01_oled_hello_test/
+│   └── 02_animated_eyes/
 ├── docs/
 │   ├── BOM.md
 │   └── images/
@@ -112,7 +128,7 @@ So when the ESP32 stopped (unplugged or lost power) while the display still had 
 
 ## Roadmap
 
-1. Animated eyes and expressions on the OLED
+1. More expressions on the OLED (idle ✅, happy, sleepy, surprised)
 2. Battery power and charging circuit
 3. Touch or motion input
 4. 3D-printable keychain and desk-stand enclosure
