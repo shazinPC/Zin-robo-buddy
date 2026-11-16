@@ -87,11 +87,15 @@ A brand-new ESP32-C3 Super Mini may not show a stable COM port until it is in bo
 
 **Expected result (Hello test):** "Hello!" appears on the screen and the display blinks every 500 ms.
 
-![Hello test](docs/images/demo.gif)
+<p>
+  <img src="docs/images/demo.gif" width="240" alt="Hello test demo">
+</p>
 
 **Expected result (animated eyes):** two eyes and a smile appear, blinking and glancing at random intervals.
-<img src="docs/images/animated_eyes_demo.gif" width="240" alt="Animated eyes demo">
 
+<p>
+  <img src="docs/images/animated_eyes_demo.gif" width="240" alt="Animated eyes demo">
+</p>
 ## Troubleshooting & Lessons Learned
 
 ### The COM port keeps blinking / disappearing in the IDE
