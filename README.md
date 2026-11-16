@@ -90,6 +90,7 @@ A brand-new ESP32-C3 Super Mini may not show a stable COM port until it is in bo
 ![Hello test](docs/images/demo.gif)
 
 **Expected result (animated eyes):** two eyes and a smile appear, blinking and glancing at random intervals.
+<img src="docs/images/animated_eyes_demo.gif" width="240" alt="Animated eyes demo">
 
 ## Troubleshooting & Lessons Learned
 
