@@ -31,7 +31,7 @@ I'm building this as a B.Tech CSE (Robotics & AI) student. My earlier projects w
 | Expression | Status | Preview |
 |---|---|---|
 | Idle (blinking, glancing) | ✅ Done | <img src="docs/images/animated_eyes_demo.gif" width="160" alt="Idle expression"> |
-| Happy | ✅ Done | <img src=""docs\images\screen_focus_2-5.gif"" width="160" alt="Idle expression"> |
+| Happy | ✅ Done | <img src="docs\images\screen_focus_2-5.gif" width="160" alt="Idle expression"> |
 | Sleepy | Planned | - |
 | Surprised | Planned | - |
 
