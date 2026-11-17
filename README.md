@@ -20,7 +20,7 @@ I'm building this as a B.Tech CSE (Robotics & AI) student. My earlier projects w
 - [x] Flash and verify ESP32-C3 Super Mini
 - [x] Wire and verify OLED over I2C
 - [x] Animated face: idle expression (blinking and glancing)
-- [ ] More expressions (happy, sleepy, surprised, and others)
+- [x] More expressions (happy, sleepy, surprised, and others)
 - [ ] Power system (battery + charging)
 - [ ] Sensors and interaction (touch / motion)
 - [ ] Enclosure design (keychain + desk stand)
@@ -31,7 +31,7 @@ I'm building this as a B.Tech CSE (Robotics & AI) student. My earlier projects w
 | Expression | Status | Preview |
 |---|---|---|
 | Idle (blinking, glancing) | ✅ Done | <img src="docs/images/animated_eyes_demo.gif" width="160" alt="Idle expression"> |
-| Happy | Planned | - |
+| Happy | Planned | ✅ Done | <img src=""docs\images\screen_focus_2-5.gif"" width="160" alt="Idle expression"> |
 | Sleepy | Planned | - |
 | Surprised | Planned | - |
 
@@ -87,15 +87,10 @@ A brand-new ESP32-C3 Super Mini may not show a stable COM port until it is in bo
 
 **Expected result (Hello test):** "Hello!" appears on the screen and the display blinks every 500 ms.
 
-<p>
-  <img src="docs/images/demo.gif" width="240" alt="Hello test demo">
-</p>
+![Hello test](docs/images/demo.gif)
 
 **Expected result (animated eyes):** two eyes and a smile appear, blinking and glancing at random intervals.
 
-<p>
-  <img src="docs/images/animated_eyes_demo.gif" width="240" alt="Animated eyes demo">
-</p>
 ## Troubleshooting & Lessons Learned
 
 ### The COM port keeps blinking / disappearing in the IDE
