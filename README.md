@@ -20,7 +20,8 @@ I'm building this as a B.Tech CSE (Robotics & AI) student. My earlier projects w
 - [x] Flash and verify ESP32-C3 Super Mini
 - [x] Wire and verify OLED over I2C
 - [x] Animated face: idle expression (blinking and glancing)
-- [x] More expressions (happy, sleepy, and surprised)
+- [x] Smooth morphing between expressions (happy, sleepy, surprised verified on hardware)
+- [ ] Verify and tune the remaining poses (angry, sad, skeptical, excited)
 - [ ] Power system (battery + charging)
 - [ ] Sensors and interaction (touch / motion)
 - [ ] Enclosure design (keychain + desk stand)
@@ -28,12 +29,19 @@ I'm building this as a B.Tech CSE (Robotics & AI) student. My earlier projects w
 
 ## Expressions
 
-| Expression | Status | Preview |
-|---|---|---|
-| Idle (blinking, glancing) | ✅ Done | <img src="docs/images/animated_eyes_demo.gif" width="160" alt="Idle expression"> |
-| Happy | ✅ Done | <img src="docs/images/screen_focus_2-5.gif" width="120" alt="Morphing face demo"> |
-| Sleepy | ✅ Done | Add preview GIF |
-| Surprised | ✅ Done | Add preview GIF |
+The face morphs smoothly between expressions: each expression is a set of numbers (eye size, lid slope, roundness) and the eyes ease toward the new values.
+
+| Expression | Status |
+|---|---|
+| Idle (blinking, glancing) | ✅ Done |
+| Happy | ✅ Done |
+| Sleepy | ✅ Done |
+| Surprised | ✅ Done |
+| Angry, Sad, Skeptical, Excited | 🔧 In the code, being tested on hardware |
+
+<p>
+  <img src="docs/images/screen_focus_2-5.gif" width="240" alt="Morphing face demo">
+</p>
 
 ## Hardware
 
@@ -84,13 +92,15 @@ A brand-new ESP32-C3 Super Mini may not show a stable COM port until it is in bo
 | [`firmware/00_i2c_scanner`](firmware/00_i2c_scanner/00_i2c_scanner.ino) | Lists I2C device addresses on the bus |
 | [`firmware/01_oled_hello_test`](firmware/01_oled_hello_test/01_oled_hello_test.ino) | Shows "Hello!" and blinks the display on/off |
 | [`firmware/02_animated_eyes`](firmware/02_animated_eyes/02_animated_eyes.ino) | Animated face, expression 1: idle with blinking and glancing |
-| [`firmware/04_morphing_face`](firmware/04_morphing_face/04_morphing_face.ino) | Morphing animated face with happy, sleepy, and surprised expressions — <img src="docs/images/screen_focus_2-5.gif" width="160" alt="Morphing face demo"> |
+| [`firmware/04_morphing_face`](firmware/04_morphing_face/04_morphing_face.ino) | Morphing animated face with smooth transitions between expressions |
 
 **Expected result (Hello test):** "Hello!" appears on the screen and the display blinks every 500 ms.
 
 ![Hello test](docs/images/demo.gif)
 
 **Expected result (animated eyes):** two eyes and a smile appear, blinking and glancing at random intervals.
+
+**Expected result (morphing face):** the eyes blink, glance around and smoothly change expression every few seconds. Open the Serial Monitor (115200 baud) and type `1` to `8` to force an expression, or `0` to return to automatic mode.
 
 ## Troubleshooting & Lessons Learned
 
@@ -102,6 +112,10 @@ A brand-new ESP32-C3 Super Mini may not show a stable COM port until it is in bo
 - Run the I2C scanner and check which address is reported.
 - Switch `OLED_ADDR` between `0x3C` and `0x3D`.
 - Double-check SDA/SCL are not swapped and that the display is powered from 3V3.
+
+### Compile error: `conflicting declaration 'constexpr const int RX'`
+**Cause:** The ESP32-C3 board package already defines names like `RX`, `TX`, `SDA` and `SCL` as pin numbers. Using one of those names for my own variable caused a clash.
+**Fix:** Give variables more specific names (for example `EYE_LEFT_X` instead of `LX`/`RX`).
 
 ### The "blinking Hello" animation froze when I disconnected the board
 This surprised me at first, so here is what is actually happening.
@@ -119,7 +133,8 @@ So when the ESP32 stopped (unplugged or lost power) while the display still had 
 ├── firmware/
 │   ├── 00_i2c_scanner/
 │   ├── 01_oled_hello_test/
-│   └── 02_animated_eyes/
+│   ├── 02_animated_eyes/
+│   └── 04_morphing_face/
 ├── docs/
 │   ├── BOM.md
 │   └── images/
@@ -129,11 +144,15 @@ So when the ESP32 stopped (unplugged or lost power) while the display still had 
 
 ## Roadmap
 
-1. More expressions on the OLED (idle, happy, sleepy, and surprised) ✅
+1. Morphing face expressions on the OLED ✅ (more expressions to come)
 2. Battery power and charging circuit
 3. Touch or motion input
 4. 3D-printable keychain and desk-stand enclosure
 5. Wi-Fi / BLE interactions
+
+## Acknowledgements
+
+The eye style is inspired by expressive robot faces such as Anki Cozmo and by [playfultechnology/esp32-eyes](https://github.com/playfultechnology/esp32-eyes). All code in this repository is original.
 
 ## Contributing
 
