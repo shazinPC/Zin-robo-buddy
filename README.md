@@ -63,6 +63,9 @@ The face morphs smoothly between expressions: each expression is a set of number
 | GND | GND |
 | SDA | GPIO 8 |
 | SCL | GPIO 9 |
+<p>
+  <img src="docs/images/wiring_diagram.svg" width="560" alt="Wiring diagram">
+</p>
 
 > **Note:** On my display module the pin order is **GND, VCC, SCL, SDA**. Check the labels on your own board, as the order varies between vendors.
 >
