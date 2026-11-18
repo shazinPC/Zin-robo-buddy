@@ -150,10 +150,6 @@ So when the ESP32 stopped (unplugged or lost power) while the display still had 
 4. 3D-printable keychain and desk-stand enclosure
 5. Wi-Fi / BLE interactions
 
-## Acknowledgements
-
-The eye style is inspired by expressive robot faces such as Anki Cozmo and by [playfultechnology/esp32-eyes](https://github.com/playfultechnology/esp32-eyes). All code in this repository is original.
-
 ## Contributing
 
 Contributions, ideas and suggestions are welcome. Please open an issue to discuss a change, then submit a pull request.
